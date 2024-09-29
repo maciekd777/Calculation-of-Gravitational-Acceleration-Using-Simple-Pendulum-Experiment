@@ -407,26 +407,36 @@ This allows the calculation of the most probable value of gravitational accelera
 The mesurements were done in Łódź (latitude $51\degree$) for lengths 0.6 m, 0.55 m, 0.5 m, 0.45 m, and 0.4 m, which makes the number of different lengths of the pendulum for which the measurements were done equal to 5. Every length of the pendulum was measured only once, but for each length the time of the 10 swings of the pendulum was measured 10 times. The length was measured with the measuring device with resolution 0.01 m, as well as the time was measured with the measuring device with resolution 0.01 s.
 
 <figure>
-<center><img src="1.png" style="width:40%"></center>
+<center><img src="1.png" style="width:80%"></center>
 </figure>
 
 All of the measured values are shown on the picture below:
 
 <figure>
-<center><img src="2.png" style="width:40%"></center>
+<center><img src="2.png" style="width:80%"></center>
 </figure>
 
 Typed values for the length 0.6 m and 0.55 m:
 
 <figure>
-<center><img src="3.png" style="width:40%"></center>
+<center><img src="3.png" style="width:65%"></center>
 </figure>
 
 After typing all the values, the measurements table is printed, which part is shown at the picture below:
 
 <figure>
-<center><img src="4.png" style="width:40%"></center>
+<center><img src="4.png" style="width:65%"></center>
 </figure>
 
+and the best approximated linear function for the model, found with the least squares method:
 
+<figure>
+<center><img src="5.png" style="width:85%"></center>
+</figure>
+
+At last, the information about calculated value $g$ is shown with its uncertainty:
+
+<figure>
+<center><img src="6.png" style="width:75%"></center>
+</figure>
 
