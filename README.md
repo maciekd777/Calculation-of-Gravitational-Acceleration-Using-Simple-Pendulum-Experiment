@@ -202,7 +202,7 @@ $$ u_c(x) = \Delta _r x .$$
 *Example.*
 
 <figure>
-<center><img src="ruler.png" style="width:50%"></center>
+<center><img src="ruler.png" style="width:65%"></center>
 <center>Ruler above has a resolution equal to 1 mm</center>
 </figure>
 
@@ -221,7 +221,7 @@ $$ U(x) = u(x) \cdot k .$$
 Factor $k$ is called coverage factor and is dependent on the one's confidence that chosing a random sample from the population of our measurements results in a confidence interval which contains the true value being estimated, and degrees of freedom of the sample. Values of $k$ can be found using the table of Student's critical values $t$:
 
 <figure>
-<center><img src="tvalues.png" style="width:20%"></center>
+<center><img src="tvalues.png" style="width:50%"></center>
 <center>Table of Student's $t$ critical values, source: https://people.richland.edu</center>
 </figure>
 
@@ -283,8 +283,11 @@ $$y = mx + b$$
 and couple points $(x_i, y_i)$ are measured, the set of linear equations with every point applied can be represented as follows:
 
 $$y_1 = mx_1 + b$$
+
 $$y_2 = mx_2 + b$$
+
 $$\vdots$$
+
 $$y_i = mx_i + b$$
 
 And in a matrix form:
