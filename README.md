@@ -431,7 +431,7 @@ After typing all the values, the measurements table is printed, which part is sh
 and the best approximated linear function for the model, found with the least squares method:
 
 <figure>
-<center><img src="5.png" style="width:85%"></center>
+<center><img src="5.png" style="width:100%"></center>
 </figure>
 
 At last, the information about calculated value $g$ is shown with its uncertainty:
