@@ -123,11 +123,11 @@ $$ \ddot{\theta} = -\frac{g}{l}\theta .$$
 
 From the equation above one can deduce that the $\omega^2$ for the simple pendulum can be written in a following way:
 
-$\omega^2 = \frac{g}{l},$
+$$\omega^2 = \frac{g}{l},$$
 
 and the $\omega$ itself:
 
-$\omega = \sqrt{\frac{g}{l}}.$
+$$\omega = \sqrt{\frac{g}{l}}.$$
 
 Finally, the formula for $T$ of the simple pendulum:
 
