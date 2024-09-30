@@ -44,8 +44,8 @@ $$\frac{\text{d} x}{\text{d} t} = \dot{x},$$
 
 $$\frac{\text{d}^2 x}{\text{d} t^2} = \ddot{x}.$$
 
-<p align="right" width="100%">
-    This text is also aligned to the right.<br>
+<p align="center" width="100%">
+    Simple pendulum, source: Wikimedia Commons.<br>
     <img width="40%" src="pendulum.png">
 </p>
 
