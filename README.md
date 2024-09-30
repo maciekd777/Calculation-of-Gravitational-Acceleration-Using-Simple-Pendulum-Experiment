@@ -228,7 +228,7 @@ Factor $k$ is called coverage factor and is dependent on the one's confidence th
     <img width="50%" src="tvalues.png">
 </p>
 
-<p align="center"><em>Table of Student's $t$ critical values, source: https://people.richland.edu</em><p align="center">
+<p align="center"><em>Table of Student's t critical values, source: https://people.richland.edu</em><p align="center">
 
 In the case of this experiment, the assumed confidence level is 95% (which means 95% probability that chosing a random sample from the population of the measurements results in a confidence interval which contains the true value being estimated) with $n-1$ degrees of freedom (whenever calculating standard deviation for some measurand $X$ there is $n-1$ independent variables, because the mean $\bar{x}$ also contains value $x_i$, so $x_i$ and $\bar{x}$ are dependent values).
 
