@@ -72,11 +72,13 @@ where $l$ is **fixed** length of the rod of the pendulum.
 However, this is not the simplest way to write those quantities, because the number of degrees of freedom can be reduced to just one! Both $x$ and $y$ positions can be written using the angle $\theta$, which is the angle between current position of the pendulum's rod and it's position in the equlibrium position:
 
 $$ x = l\sin{\theta}, $$
+
 $$ y = -l\cos{\theta}, $$
 
 With displacement written like this, the following equations for velocity for both axis can be written:
 
 $$ \dot{x} = \frac{\text{d} x}{\text{d} t} = -l\dot{\theta}\cos{\theta} ,$$
+
 $$ \dot{y} = \frac{\text{d} y}{\text{d} t} = l\dot{\theta}\sin{\theta} ,$$
 
 and total kinetic energy of the system can be expressed using just one variable $\theta$, instead two cartesian coordinates:
