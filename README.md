@@ -44,9 +44,10 @@ $$\frac{\text{d} x}{\text{d} t} = \dot{x},$$
 
 $$\frac{\text{d}^2 x}{\text{d} t^2} = \ddot{x}.$$
 
-<figure align="center" width="100%">
+<p align="right" width="100%">
+    This text is also aligned to the right.<br>
     <img width="40%" src="pendulum.png">
-</figure>
+</p>
 
 To obtain the formula for $\omega$, one need to solve the equation of motion for the pendulum system. One of the methods is to use the Euler-Lagrange equations, which can be obtained solving the equation below:
 
