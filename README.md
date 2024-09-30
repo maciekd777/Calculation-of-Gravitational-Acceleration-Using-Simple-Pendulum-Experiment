@@ -46,7 +46,7 @@ $$\frac{\text{d}^2 x}{\text{d} t^2} = \ddot{x}.$$
 
 
 <figure align="center">
-<img src="pendulum.png" style="width:40%">
+ <img src="pendulum.png" style="width:40%" />
 Simple pendulum, source: Wikimedia Commons
 </figure>
 
