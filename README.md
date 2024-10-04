@@ -301,8 +301,11 @@ $$y = mx + b$$
 and couple points $(x_i, y_i)$ are measured, the set of linear equations with every point applied can be represented as follows:
 
 $$y_1 = mx_1 + b$$
+
 $$y_2 = mx_2 + b$$
+
 $$\vdots$$
+
 $$y_i = mx_i + b$$
 
 And in a matrix form:
