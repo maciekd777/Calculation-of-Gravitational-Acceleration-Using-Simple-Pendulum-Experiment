@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/f8206244-9dd6-424a-8c73-68fe79ac17e6">
-</p>
-
 # Calculation of Gravitational Acceleration Using Simple Pendulum Experiment
 
 If you've had physics laboratory classes at some point as a student, there is a big chance that you've come across this experiment. Basically, it is about calculation of gravitational acceleration $g$ using an equation for period $T$ of mathematical pendulum:
