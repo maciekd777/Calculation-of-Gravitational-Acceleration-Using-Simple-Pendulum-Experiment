@@ -211,9 +211,8 @@ $$ u_c(x) = \Delta _r x .$$
 *Example.*
 
 <figure>
-<center><img src="https://github.com/user-attachments/assets/15d8ab0d-5ee6-491d-8cd7-dcc553bc860e" style="width:80%"></center>
-    
-<center>Ruler with resolution equal to 0.1 cm</center>
+    <img src="https://github.com/user-attachments/assets/15d8ab0d-5ee6-491d-8cd7-dcc553bc860e" style="width:80%"></center>
+    <center>Ruler with resolution equal to 0.1 cm</center>
 </figure>
 
 There are many other ways to calculate type B uncertainty, but in this experiment the only measured quantities are time and length, thus there is no need to use more advanced measuring instruments like analog and digital ones. Type B uncertainty is also calculated when the values of the measurements are different, because even then the uncertainty related to the measuring device need to be taken into account. But, if all values of measurements are the same, or there was only one measurement done, the uncertainty of the most probable value of the measurand will be equal to only type B uncertainty.
