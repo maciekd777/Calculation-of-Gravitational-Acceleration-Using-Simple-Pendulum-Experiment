@@ -1,14 +1,29 @@
-# Calculation of Gravitational Acceleration Using Simple Pendulum Experiment
-#### Maciej Dombrowski
 
-## Abstract
+# Calculation of Gravitational Acceleration Using Simple Pendulum Experiment
+
 If you've had physics laboratory classes at some point as a student, there is a big chance that you've come across this experiment. Basically, it is about calculation of gravitational acceleration $g$ using an equation for period $T$ of mathematical pendulum:
 
 $$T = 2\pi\sqrt{\frac{l}{g}} .$$
 
-The experiment involves measurements, uncertainty evaluation, least squares coefficients calculation, and its graph plotting.
+It could be helpful for someone who have had that experiment in classes and want to know if the measurements were done right.
+
+## Authors
+
+- [@maciekd777](https://github.com/maciekd777)
+
+## Tech Stack
+
+**Data manipulaition:** Pandas
+
+**Data visualization:** Matplotlib
+
+**Linear model data fitting:** Statmodels
+
+**Statistics:** SciPy, NumPy
+
 
 ## Theoretical introduction
+
 ### 1 Physics
 
 #### 1.1 Harmonic oscilator basics
@@ -44,11 +59,10 @@ $$\frac{\text{d} x}{\text{d} t} = \dot{x},$$
 
 $$\frac{\text{d}^2 x}{\text{d} t^2} = \ddot{x}.$$
 
-<p align="center" width="100%">
-    <img width="40%" src="pendulum.png">
-</p>
-
-<p align="center"><em>Simple pendulum, source: Wikimedia Commons</em><p align="center">
+<figure>
+<center><img src="pendulum.png" style="width:20%"></center>
+<center>Simple pendulum, source: Wikimedia Commons</center>
+</figure>
 
 To obtain the formula for $\omega$, one need to solve the equation of motion for the pendulum system. One of the methods is to use the Euler-Lagrange equations, which can be obtained solving the equation below:
 
@@ -73,13 +87,11 @@ where $l$ is **fixed** length of the rod of the pendulum.
 However, this is not the simplest way to write those quantities, because the number of degrees of freedom can be reduced to just one! Both $x$ and $y$ positions can be written using the angle $\theta$, which is the angle between current position of the pendulum's rod and it's position in the equlibrium position:
 
 $$ x = l\sin{\theta}, $$
-
 $$ y = -l\cos{\theta}, $$
 
 With displacement written like this, the following equations for velocity for both axis can be written:
 
 $$ \dot{x} = \frac{\text{d} x}{\text{d} t} = -l\dot{\theta}\cos{\theta} ,$$
-
 $$ \dot{y} = \frac{\text{d} y}{\text{d} t} = l\dot{\theta}\sin{\theta} ,$$
 
 and total kinetic energy of the system can be expressed using just one variable $\theta$, instead two cartesian coordinates:
@@ -124,11 +136,11 @@ $$ \ddot{\theta} = -\frac{g}{l}\theta .$$
 
 From the equation above one can deduce that the $\omega^2$ for the simple pendulum can be written in a following way:
 
-$$\omega^2 = \frac{g}{l},$$
+$\omega^2 = \frac{g}{l},$
 
 and the $\omega$ itself:
 
-$$\omega = \sqrt{\frac{g}{l}}.$$
+$\omega = \sqrt{\frac{g}{l}}.$
 
 Finally, the formula for $T$ of the simple pendulum:
 
@@ -204,11 +216,10 @@ $$ u_c(x) = \Delta _r x .$$
 
 *Example.*
 
-<p align="center" width="100%">
-    <img width="65%" src="ruler.jpg">
-</p>
-
-<p align="center"><em>Ruler with resolution equal to 1 mm</em><p align="center">
+<figure>
+<center><img src="ruler.png" style="width:50%"></center>
+<center>Ruler above has a resolution equal to 1 mm</center>
+</figure>
 
 There are many other ways to calculate type B uncertainty, but in this experiment the only measured quantities are time and length, thus there is no need to use more advanced measuring instruments like analog and digital ones. Type B uncertainty is also calculated when the values of the measurements are different, because even then the uncertainty related to the measuring device need to be taken into account. But, if all values of measurements are the same, or there was only one measurement done, the uncertainty of the most probable value of the measurand will be equal to only type B uncertainty.
 
@@ -224,11 +235,10 @@ $$ U(x) = u(x) \cdot k .$$
 
 Factor $k$ is called coverage factor and is dependent on the one's confidence that chosing a random sample from the population of our measurements results in a confidence interval which contains the true value being estimated, and degrees of freedom of the sample. Values of $k$ can be found using the table of Student's critical values $t$:
 
-<p align="center" width="100%">
-    <img width="50%" src="tvalues.png">
-</p>
-
-<p align="center"><em>Table of Student's t critical values, source: https://people.richland.edu</em><p align="center">
+<figure>
+<center><img src="tvalues.png" style="width:20%"></center>
+<center>Table of Student's $t$ critical values, source: https://people.richland.edu</center>
+</figure>
 
 In the case of this experiment, the assumed confidence level is 95% (which means 95% probability that chosing a random sample from the population of the measurements results in a confidence interval which contains the true value being estimated) with $n-1$ degrees of freedom (whenever calculating standard deviation for some measurand $X$ there is $n-1$ independent variables, because the mean $\bar{x}$ also contains value $x_i$, so $x_i$ and $\bar{x}$ are dependent values).
 
@@ -245,8 +255,17 @@ $$ u(T^2) = \sqrt{\left(\frac{\partial (\frac{T_{10}}{10})^2}{\partial T}\right)
 and for $g$:
 
 $$ u(g) = \sqrt{\left(\frac{\partial (\frac{4\pi^2}{m})}{\partial m}\right)^2 \cdot u^2(m)} = \frac{4\pi^2}{m^2} \cdot u(m) $$
+## Installation
 
-### 3 Course of the experiment
+Get the source code and assets from github. Then, install requirements from requirements.txt.
+
+```bash
+git clone https://github.com/maciekd777/Calculation-of-Gravitational-Acceleration-Using-Simple-Pendulum-Experiment.git
+python -m pip install -r requirements.txt
+python main.py
+```
+    
+## Course of the experiment
 
 1. Measure length $l$ of the pendulum's rod and make sure that it is significantly longer than radius $r$ of the pendulum's bulb. In general, length of the pendulum is equal to length of the rod plus radius $r$ of the bulb.
 2. Measure couple times 10 swings of the pendulum (the time of 10 periods $T$). It reduces the uncertainty regarding to stopping the time in the correct frame.
@@ -288,11 +307,8 @@ $$y = mx + b$$
 and couple points $(x_i, y_i)$ are measured, the set of linear equations with every point applied can be represented as follows:
 
 $$y_1 = mx_1 + b$$
-
 $$y_2 = mx_2 + b$$
-
 $$\vdots$$
-
 $$y_i = mx_i + b$$
 
 And in a matrix form:
@@ -325,8 +341,7 @@ $$m = \frac{(\sum_{i=1}^n x_i) \cdot (\sum_{i=1}^n y_i) - n\sum_{i=1}^n(x_ix_i)}
 and its uncertainty:
 
 $$ u(m) = \sqrt{\frac{1}{n-2}\sum_{i=1}^n (y_i - (mx_i + b))^2} \cdot \sqrt{\frac{\sum_{i=1}^n x_i^2}{n\sum_{i=1}^n x_i^2 - (\sum_{i=1}^n x_i)^2}} $$
-
-### 4 Python code
+## Detailed code description
 
 The program's code is splitted into couple files:
 
@@ -346,7 +361,7 @@ The `AskFor` class consists of methods that are used to get some input from the 
   - `question`, which will be the question asked to the user
   - `values`, which the defualt value is `False`, and which informs the program weather the user is asked for values of the quantities measured or not
 
-    When runned, the user is asked for the input with the `question` printed, and the input is assigned to the variable `answer`. Then, the program tries to convert the `answer` into type `flt` value. If the convertion has failed and the `Value Error` has been raised, the program tries to replace `,` with `.` (some write floats with coma as a seperator instead of a dot), and once again tries to convert the value. If neither convertions works out, `Wrong value!` message is printed to the user and the program asks for a value again. If the convertion is succesful, but the value is 0, the program prints `Value needs to be greater than 0!` and asks for a value again (there is no case where this method is used and where the value 0 could be a proper value). If the convertion is succesful and the value is greater than 0, program returns the input converted to float, however, if the `values` argument passed to the method had a value `True`, the method returns also unchanged input of the user. It is due to the way of converting `str` to `flt` in Python and cutting the trailing zeros (e.g. "2.30" would be converted to 2.3). In the calculations there is no difference if we are dealing with 2.30 or 2.3, but if the user typed "2.30", it suggests that the measuring device used had a precision up to two decimal places, so the second decimal is also significant figure. For example, value "2.3" suggests that the minimum difference between different values is 0.1, but "2.30" suggests that the minimum difference between different values is 0.01. The `values` argument equal to `True` tells the program that the user is now asked for a value of the measurement, and to maintain the information that the user has typed trailing zeros, the method then returns also the unchanged input.
+When runned, the user is asked for the input with the `question` printed, and the input is assigned to the variable `answer`. Then, the program tries to convert the `answer` into type `flt` value. If the convertion has failed and the `Value Error` has been raised, the program tries to replace `,` with `.` (some write floats with coma as a seperator instead of a dot), and once again tries to convert the value. If neither convertions works out, `Wrong value!` message is printed to the user and the program asks for a value again. If the convertion is succesful, but the value is 0, the program prints `Value needs to be greater than 0!` and asks for a value again (there is no case where this method is used and where the value 0 could be a proper value). If the convertion is succesful and the value is greater than 0, program returns the input converted to float, however, if the `values` argument passed to the method had a value `True`, the method returns also unchanged input of the user. It is due to the way of converting `str` to `flt` in Python and cutting the trailing zeros (e.g. "2.30" would be converted to 2.3). In the calculations there is no difference if we are dealing with 2.30 or 2.3, but if the user typed "2.30", it suggests that the measuring device used had a precision up to two decimal places, so the second decimal is also significant figure. For example, value "2.3" suggests that the minimum difference between different values is 0.1, but "2.30" suggests that the minimum difference between different values is 0.01. The `values` argument equal to `True` tells the program that the user is now asked for a value of the measurement, and to maintain the information that the user has typed trailing zeros, the method then returns also the unchanged input.
 
 * `integer` - Used to get the `int` type input from the user. It functions in a similar way to the `float` method, but doesn't have additional `values` argument.
 * `int_from_list` - Used to get from the user one of the integers that's inside a passed list `int_range`. If the user input is not in the list `int_range`, the message `Value out of range!` is printed, and if the input is not a number, `Wrong value!` is printed instead. If the input is correct, its value is returned.
@@ -410,41 +425,16 @@ After the program gets out of the loop, some of the settings of pandas are chang
  - Assign the values of coefficients $m$ and $b$ from `results.params`, and uncertainty of parameter $m$ from `results.bse`
 This allows the calculation of the most probable value of gravitational acceleration $g$ from the equation $g = \frac{4\pi^2}{m}$. After gathering of the data needed, the object `g` (related to the gravitational acceleration) of the class `Quantities` is being created to get the access to the `round_to_sig_fig` and `round_to_uncertainty` methods, and round the uncertainty of $g$ to 2 significant figures and then round the most calculated value of $g$ to the same digit as the uncertainty. If the value of $g$ calculated with the usage of latitude, which in this case can be treated as the real value of $g$, is in the range of $g$ calculated from the measurements ± its uncertainty, the evaluation can be treated as succesfull, and the message "Congratulations! Your evaluation is correct!" is printed. Otherwise, user will see the following message: "Unfortunately, evaluated value of gravitational constant is outside the margin of error. Do the measurements again and try to evaluate the gravitational acceleration later.". At last, the settings for the plot is being set, and the plot is plotted with uncertainties as error bars.
 
-#### 4.2 The example
+## Example
 
 The mesurements were done in Łódź (latitude $51\degree$) for lengths 0.6 m, 0.55 m, 0.5 m, 0.45 m, and 0.4 m, which makes the number of different lengths of the pendulum for which the measurements were done equal to 5. Every length of the pendulum was measured only once, but for each length the time of the 10 swings of the pendulum was measured 10 times. The length was measured with the measuring device with resolution 0.01 m, as well as the time was measured with the measuring device with resolution 0.01 s.
 
-<p align="center" width="100%">
-    <img width="80%" src="1.png">
-</p>
-
 All of the measured values are shown on the picture below:
-
-<p align="center" width="100%">
-    <img width="80%" src="2.png">
-</p>
 
 Typed values for the length 0.6 m and 0.55 m:
 
-<p align="center" width="100%">
-    <img width="65%" src="3.png">
-</p>
-
 After typing all the values, the measurements table is printed, which part is shown at the picture below:
+## Badges
 
-<p align="center" width="100%">
-    <img width="65%" src="4.png">
-</p>
-
-and the best approximated linear function for the model, found with the least squares method:
-
-<p align="center" width="100%">
-    <img width="100%" src="5.png">
-</p>
-
-At last, the information about calculated value $g$ is shown with its uncertainty:
-
-<p align="center" width="100%">
-    <img width="75%" src="6.png">
-</p>
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
