@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f8206244-9dd6-424a-8c73-68fe79ac17e6">
+</p>
 
 # Calculation of Gravitational Acceleration Using Simple Pendulum Experiment
 
