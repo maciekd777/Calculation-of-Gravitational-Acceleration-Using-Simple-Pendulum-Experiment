@@ -430,19 +430,19 @@ The mesurements were done in Łódź (latitude $51\degree$) for lengths 0.6 m, 0
 All of the measured values are shown on the picture below:
 
 <div align="center">
-<img width=90% src="https://github.com/user-attachments/assets/4f120e22-435f-4649-a686-f66367c91d36">
+<img width=70% src="https://github.com/user-attachments/assets/4f120e22-435f-4649-a686-f66367c91d36">
 </div>
 
 Typed values for the length 0.6 m and 0.55 m:
 
 <div align="center">
-<img width=40% src="https://github.com/user-attachments/assets/54658833-a61f-404f-ac48-60ca1afc5644">
+<img width=60% src="https://github.com/user-attachments/assets/54658833-a61f-404f-ac48-60ca1afc5644">
 </div>
 
 After typing all the values, the measurements table is printed, which part is shown at the picture below:
 
 <div align="center">
-<img width=90% src="https://github.com/user-attachments/assets/1b9405df-e25a-476e-8545-eba02e9d3b16">
+<img width=70% src="https://github.com/user-attachments/assets/1b9405df-e25a-476e-8545-eba02e9d3b16">
 </div>
 
 and graph of the best approximation of linear function that's fitting the measurements is displayed (with measurements points and uncertainties bars):
