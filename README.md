@@ -4,7 +4,7 @@ If you've had physics laboratory classes at some point as a student, there is a 
 
 $$T = 2\pi\sqrt{\frac{l}{g}} .$$
 
-It could be helpful for someone who have had that experiment in classes and want to know if the measurements were done right.
+The experiment involves measurements, uncertainty evaluation, least squares coefficients calculation, and plotting a graph of the best approximation of linear function fitting the measurements.
 
 ## Authors
 
