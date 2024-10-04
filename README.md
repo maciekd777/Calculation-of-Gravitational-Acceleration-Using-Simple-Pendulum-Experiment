@@ -212,6 +212,7 @@ $$ u_c(x) = \Delta _r x .$$
 
 <p align="center" width="100%">
     <img width="80%" src="https://github.com/user-attachments/assets/15d8ab0d-5ee6-491d-8cd7-dcc553bc860e">
+    
     Ruler with resolution equal to 0.1 cm
 </p>
 
