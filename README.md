@@ -229,10 +229,10 @@ $$ U(x) = u(x) \cdot k .$$
 
 Factor $k$ is called coverage factor and is dependent on the one's confidence that chosing a random sample from the population of our measurements results in a confidence interval which contains the true value being estimated, and degrees of freedom of the sample. Values of $k$ can be found using the table of Student's critical values $t$:
 
-<figure>
-<center><img src="https://github.com/user-attachments/assets/005efe49-9690-4d8c-ae3d-dbb35e059075" style="width:20%"></center>
-<center>Table of Student's $t$ critical values, source: https://people.richland.edu</center>
-</figure>
+<div align="center">
+<img width=40% src="https://github.com/user-attachments/assets/005efe49-9690-4d8c-ae3d-dbb35e059075">
+<p>Table of Student's $t$ critical values, source: https://people.richland.edu</p>
+</div>
 
 In the case of this experiment, the assumed confidence level is 95% (which means 95% probability that chosing a random sample from the population of the measurements results in a confidence interval which contains the true value being estimated) with $n-1$ degrees of freedom (whenever calculating standard deviation for some measurand $X$ there is $n-1$ independent variables, because the mean $\bar{x}$ also contains value $x_i$, so $x_i$ and $\bar{x}$ are dependent values).
 
@@ -423,40 +423,39 @@ This allows the calculation of the most probable value of gravitational accelera
 
 The mesurements were done in Łódź (latitude $51\degree$) for lengths 0.6 m, 0.55 m, 0.5 m, 0.45 m, and 0.4 m, which makes the number of different lengths of the pendulum for which the measurements were done equal to 5. Every length of the pendulum was measured only once, but for each length the time of the 10 swings of the pendulum was measured 10 times. The length was measured with the measuring device with resolution 0.01 m, as well as the time was measured with the measuring device with resolution 0.01 s.
 
-<figure>
-<center><img src="https://github.com/user-attachments/assets/2c2998ec-e52b-4482-8daa-ad8686a743c4" style="width:90%"></center>
-</figure>
+<div align="center">
+<img width=90% src="https://github.com/user-attachments/assets/2c2998ec-e52b-4482-8daa-ad8686a743c4">
+</div>
 
 All of the measured values are shown on the picture below:
 
-<figure>
-<center><img src="https://github.com/user-attachments/assets/4f120e22-435f-4649-a686-f66367c91d36" style="width:90%"></center>
-</figure>
+<div align="center">
+<img width=90% src="https://github.com/user-attachments/assets/4f120e22-435f-4649-a686-f66367c91d36">
+</div>
 
 Typed values for the length 0.6 m and 0.55 m:
 
-<figure>
-<center><img src="https://github.com/user-attachments/assets/54658833-a61f-404f-ac48-60ca1afc5644" style="width:40%"></center>
-</figure>
+<div align="center">
+<img width=40% src="https://github.com/user-attachments/assets/54658833-a61f-404f-ac48-60ca1afc5644">
+</div>
 
 After typing all the values, the measurements table is printed, which part is shown at the picture below:
 
-<figure>
-<center><img src="https://github.com/user-attachments/assets/1b9405df-e25a-476e-8545-eba02e9d3b16" style="width:90%"></center>
-</figure>
+<div align="center">
+<img width=90% src="https://github.com/user-attachments/assets/1b9405df-e25a-476e-8545-eba02e9d3b16">
+</div>
 
 and graph of the best approximation of linear function that's fitting the measurements is displayed (with measurements points and uncertainties bars):
 
-<figure>
-<center><img src="https://github.com/user-attachments/assets/a48ee19c-0684-4b98-9c2c-bc0993b4419a" style="width:100%"></center>
-</figure>
+<div align="center">
+<img width=100% src="https://github.com/user-attachments/assets/a48ee19c-0684-4b98-9c2c-bc0993b4419a">
+</div>
 
 At last, calculated values of $g$ from latitude, and $g$ from the usage of measurements points and coefficient $m$ of the linear function are displayed with their uncertainties:
 
-<figure>
-<center><img src="https://github.com/user-attachments/assets/edef6c4e-5d9f-4e2b-99b3-0b60ce4277f5" style="width:100%"></center>
-</figure>
-
+<div align="center">
+<img width=100% src="https://github.com/user-attachments/assets/edef6c4e-5d9f-4e2b-99b3-0b60ce4277f5">
+</div>
 
 ## Badges
 
