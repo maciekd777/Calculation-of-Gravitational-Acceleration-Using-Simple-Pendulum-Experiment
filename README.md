@@ -211,7 +211,7 @@ $$ u_c(x) = \Delta _r x .$$
 *Example.*
 
 <figure>
-    <img src="https://github.com/user-attachments/assets/15d8ab0d-5ee6-491d-8cd7-dcc553bc860e" style="width:80%"></center>
+    <center><img src="https://github.com/user-attachments/assets/15d8ab0d-5ee6-491d-8cd7-dcc553bc860e" style="width:80%"></center>
     <center>Ruler with resolution equal to 0.1 cm</center>
 </figure>
 
