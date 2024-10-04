@@ -68,6 +68,11 @@ $$L = T - V,$$
 
 where $T$ is the kinetic energy of the system and $V$ - it's potential energy. However, before the calculation of Lagrangian, the generalized coordinates $q_j$ needs to be figured out. They form a set of quantities which allows to describe the position of the mechanical system in a simplest possible way. The most common quantities are the cartesian coordinates, such as $x$ and $y$, but in many cases there is a way to use less quantities, and it also applies to the pendulum case!
 
+<div align="center">
+<img width=40% src="https://github.com/user-attachments/assets/1d656c46-5311-4556-ae33-27300652add4">
+<p>Simple pendulum, source: Wikimedia Commons</p>
+</div>
+
 The next step is to try to calculate the kinetic energy of the pendulum's bulb. By looking at the picture above one can say that the pendulum has velocity on the $x$ axis, but also on the $y$ axis, thus the following can be written:
 
 $$ T = \frac{1}{2} m\dot{x}^2 + \frac{1}{2} m\dot{y}^2.$$
