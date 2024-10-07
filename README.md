@@ -20,6 +20,15 @@ The experiment involves measurements, uncertainty evaluation, least squares coef
 
 **Statistics:** SciPy, NumPy
 
+## Installation
+
+Get the source code and assets from github. Then, install requirements from requirements.txt.
+
+```bash
+git clone https://github.com/maciekd777/Calculation-of-Gravitational-Acceleration-Using-Simple-Pendulum-Experiment.git
+python -m pip install -r requirements.txt
+python main.py
+```
 
 ## Theoretical introduction
 
@@ -254,15 +263,6 @@ $$ u(T^2) = \sqrt{\left(\frac{\partial (\frac{T_{10}}{10})^2}{\partial T}\right)
 and for $g$:
 
 $$ u(g) = \sqrt{\left(\frac{\partial (\frac{4\pi^2}{m})}{\partial m}\right)^2 \cdot u^2(m)} = \frac{4\pi^2}{m^2} \cdot u(m) $$
-## Installation
-
-Get the source code and assets from github. Then, install requirements from requirements.txt.
-
-```bash
-git clone https://github.com/maciekd777/Calculation-of-Gravitational-Acceleration-Using-Simple-Pendulum-Experiment.git
-python -m pip install -r requirements.txt
-python main.py
-```
     
 ## Course of the experiment
 
