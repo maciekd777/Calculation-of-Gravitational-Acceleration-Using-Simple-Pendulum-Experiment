@@ -1,4 +1,4 @@
-# Calculation of Gravitational Acceleration Using Simple Pendulum Experiment
+# Calculation of Gravitational Acceleration
 
 If you've had physics laboratory classes at some point as a student, there is a big chance that you've come across this experiment. Basically, it is about calculation of gravitational acceleration $g$ using an equation for period $T$ of mathematical pendulum:
 
@@ -6,6 +6,11 @@ $$T = 2\pi\sqrt{\frac{l}{g}} .$$
 
 The experiment involves measurements, uncertainty evaluation, least squares coefficients calculation, and plotting a graph of the best approximation of linear function fitting the measurements.
 
+## Table of contents
+
+[Headers](#headers)
+
+<authors="headers"/>
 ## Authors
 
 - [@maciekd777](https://github.com/maciekd777)
