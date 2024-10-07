@@ -21,7 +21,7 @@ The experiment involves measurements, uncertainty evaluation, least squares coef
 **Statistics:** SciPy, NumPy
 
 
-# Theoretical introduction
+## Theoretical introduction
 
 ### 1 Physics
 
