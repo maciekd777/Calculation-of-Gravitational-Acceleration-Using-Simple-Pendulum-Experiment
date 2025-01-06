@@ -30,7 +30,125 @@ python -m pip install -r requirements.txt
 python main.py
 ```
 
-## Theoretical introduction
+## Course of the experiment
+
+1. Measure length $l$ of the pendulum's rod and make sure that it is significantly longer than radius $r$ of the pendulum's bulb. In general, length of the pendulum is equal to length of the rod plus radius $r$ of the bulb.
+2. Measure couple times 10 swings of the pendulum (the time of 10 periods $T$). It reduces the uncertainty regarding to stopping the time in the correct frame.
+3. Repeat the step 1 and 2 for at least 3 different lengths of the pendulum, and make sure that there is at least 5 cm difference between the lengths
+
+However, be sure that:
+
+- The mass of the rod is negligible compared to mass of the blob
+- The time is measured in seconds, and the length is measured in meters
+- The pendulum is swung by a small angle (less than about $10 \degree$) to maintain the small angle aproximation
+- Start counting the time of the 10 periods when the pendulum is passing the equlibrium position
+
+To calculate the value of $g$ the equations below will be used:
+
+$$T = 2\pi \sqrt{\frac{l}{g}}. $$
+
+$$T^2 = \frac{4\pi^2l}{g},$$
+
+So, the function $f(l) = T^2$ can be rewritten in the following form:
+
+$$T^2 = \frac{4\pi^2}{g} \cdot l,$$
+
+which now is nothing but a linear function:
+
+$$f(x) = mx + b,$$
+
+with coefficient $m$ equal to:
+
+$$m = \frac{4\pi^2}{g},$$
+
+which makes $g$ equal to:
+
+$$g = \frac{4\pi^2}{m}.$$
+
+If all measurements were done with the perfect precision, the points $(l, T^2)$ would form a straight line. Of course, this probably won't be the case, because there is no way that measurements were done with perfect precision, so the points will lie a bit off the perfect line. However, there is still a possibility to calculate coefficient $m$ with it's uncertainty, and draw the best possible approximation of a linear function from the measurement points, by using linear regression, and the least squares method. If the model is linear
+
+$$y = mx + b$$
+
+and couple points $(x_i, y_i)$ are measured, the set of linear equations with every point applied can be represented as follows:
+
+$$y_1 = mx_1 + b$$
+
+$$y_2 = mx_2 + b$$
+
+$$\vdots$$
+
+$$y_i = mx_i + b$$
+
+And in a matrix form:
+
+$$
+\begin{align}
+\begin{pmatrix}
+y_1 \\
+y_2 \\
+\vdots \\
+y_i
+\end{pmatrix}
+= \begin{pmatrix}
+x_1 & 1 \\
+x_2 & 1 \\
+\vdots & \vdots \\
+x_i & 1 \\
+\end{pmatrix}
+\cdot \begin{pmatrix}
+m \\
+b \\
+\end{pmatrix}
+\end{align}
+$$
+
+The coefficient $m$ can be approximated with the least squares method and the following equation:
+
+$$m = \frac{(\sum_{i=1}^n x_i) \cdot (\sum_{i=1}^n y_i) - n\sum_{i=1}^n(x_ix_i)}{(\sum_{i=1}^n x_i)^2 - n\sum_{i=1}^n x_i^2} $$
+
+and its uncertainty:
+
+$$ u(m) = \sqrt{\frac{1}{n-2}\sum_{i=1}^n (y_i - (mx_i + b))^2} \cdot \sqrt{\frac{\sum_{i=1}^n x_i^2}{n\sum_{i=1}^n x_i^2 - (\sum_{i=1}^n x_i)^2}} $$
+
+## Example
+
+The mesurements were done in Łódź (latitude $51\degree$) for lengths 0.6 m, 0.55 m, 0.5 m, 0.45 m, and 0.4 m, which makes the number of different lengths of the pendulum for which the measurements were done equal to 5. Every length of the pendulum was measured only once, but for each length the time of the 10 swings of the pendulum was measured 10 times. The length was measured with the measuring device with resolution 0.01 m, as well as the time was measured with the measuring device with resolution 0.01 s.
+
+<div align="center">
+<img width=90% src="https://github.com/user-attachments/assets/2c2998ec-e52b-4482-8daa-ad8686a743c4">
+</div>
+
+All of the measured values are shown on the picture below:
+
+<div align="center">
+<img width=70% src="https://github.com/user-attachments/assets/4f120e22-435f-4649-a686-f66367c91d36">
+</div>
+
+Typed values for the length 0.6 m and 0.55 m:
+
+<div align="center">
+<img width=60% src="https://github.com/user-attachments/assets/54658833-a61f-404f-ac48-60ca1afc5644">
+</div>
+
+After typing all the values, the measurements table is printed, which part is shown at the picture below:
+
+<div align="center">
+<img width=60% src="https://github.com/user-attachments/assets/1b9405df-e25a-476e-8545-eba02e9d3b16">
+</div>
+
+and graph of the best approximation of linear function that's fitting the measurements is displayed (with measurements points and uncertainties bars):
+
+<div align="center">
+<img width=100% src="https://github.com/user-attachments/assets/a48ee19c-0684-4b98-9c2c-bc0993b4419a">
+</div>
+
+At last, calculated values of $g$ from latitude, and $g$ from the usage of measurements points and coefficient $m$ of the linear function are displayed with their uncertainties:
+
+<div align="center">
+<img width=100% src="https://github.com/user-attachments/assets/edef6c4e-5d9f-4e2b-99b3-0b60ce4277f5">
+</div>
+
+## Appendix: Physics and Math Concepts Behind the Experiment
 
 ### 1 Physics
 
@@ -263,207 +381,6 @@ $$ u(T^2) = \sqrt{\left(\frac{\partial (\frac{T_{10}}{10})^2}{\partial T}\right)
 and for $g$:
 
 $$ u(g) = \sqrt{\left(\frac{\partial (\frac{4\pi^2}{m})}{\partial m}\right)^2 \cdot u^2(m)} = \frac{4\pi^2}{m^2} \cdot u(m) $$
-    
-## Course of the experiment
-
-1. Measure length $l$ of the pendulum's rod and make sure that it is significantly longer than radius $r$ of the pendulum's bulb. In general, length of the pendulum is equal to length of the rod plus radius $r$ of the bulb.
-2. Measure couple times 10 swings of the pendulum (the time of 10 periods $T$). It reduces the uncertainty regarding to stopping the time in the correct frame.
-3. Repeat the step 1 and 2 for at least 3 different lengths of the pendulum, and make sure that there is at least 5 cm difference between the lengths
-
-However, be sure that:
-
-- The mass of the rod is negligible compared to mass of the blob
-- The time is measured in seconds, and the length is measured in meters
-- The pendulum is swung by a small angle (less than about $10 \degree$) to maintain the small angle aproximation
-- Start counting the time of the 10 periods when the pendulum is passing the equlibrium position
-
-To calculate the value of $g$ the equations below will be used:
-
-$$T = 2\pi \sqrt{\frac{l}{g}}. $$
-
-$$T^2 = \frac{4\pi^2l}{g},$$
-
-So, the function $f(l) = T^2$ can be rewritten in the following form:
-
-$$T^2 = \frac{4\pi^2}{g} \cdot l,$$
-
-which now is nothing but a linear function:
-
-$$f(x) = mx + b,$$
-
-with coefficient $m$ equal to:
-
-$$m = \frac{4\pi^2}{g},$$
-
-which makes $g$ equal to:
-
-$$g = \frac{4\pi^2}{m}.$$
-
-If all measurements were done with the perfect precision, the points $(l, T^2)$ would form a straight line. Of course, this probably won't be the case, because there is no way that measurements were done with perfect precision, so the points will lie a bit off the perfect line. However, there is still a possibility to calculate coefficient $m$ with it's uncertainty, and draw the best possible approximation of a linear function from the measurement points, by using linear regression, and the least squares method. If the model is linear
-
-$$y = mx + b$$
-
-and couple points $(x_i, y_i)$ are measured, the set of linear equations with every point applied can be represented as follows:
-
-$$y_1 = mx_1 + b$$
-
-$$y_2 = mx_2 + b$$
-
-$$\vdots$$
-
-$$y_i = mx_i + b$$
-
-And in a matrix form:
-
-$$
-\begin{align}
-\begin{pmatrix}
-y_1 \\
-y_2 \\
-\vdots \\
-y_i
-\end{pmatrix}
-= \begin{pmatrix}
-x_1 & 1 \\
-x_2 & 1 \\
-\vdots & \vdots \\
-x_i & 1 \\
-\end{pmatrix}
-\cdot \begin{pmatrix}
-m \\
-b \\
-\end{pmatrix}
-\end{align}
-$$
-
-The coefficient $m$ can be approximated with the least squares method and the following equation:
-
-$$m = \frac{(\sum_{i=1}^n x_i) \cdot (\sum_{i=1}^n y_i) - n\sum_{i=1}^n(x_ix_i)}{(\sum_{i=1}^n x_i)^2 - n\sum_{i=1}^n x_i^2} $$
-
-and its uncertainty:
-
-$$ u(m) = \sqrt{\frac{1}{n-2}\sum_{i=1}^n (y_i - (mx_i + b))^2} \cdot \sqrt{\frac{\sum_{i=1}^n x_i^2}{n\sum_{i=1}^n x_i^2 - (\sum_{i=1}^n x_i)^2}} $$
-## Detailed code description
-
-The program's code is splitted into couple files:
-
-* `main.py`, which controls the run of the program
-* `Quantities.py`, which contains the class `Quantites`
-* `AskFor.py`, which contains the class `AskFor`
-* `Results.py`, which contains the class `Results`
-* `Constants.py`, which contains constants used in the other files, such as text messages and lists
-
-#### 4.1 Classes
-
-##### 4.1.1 AskFor
-
-The `AskFor` class consists of methods that are used to get some input from the user. All methods are class methods, because there is no need for creating its object, and it is convenient to type just AskFor.*name_of_the_method*. The methods are:
-
-* `float` - Used to get the float type input from the user. It takes two arguments:
-  - `question`, which will be the question asked to the user
-  - `values`, which the defualt value is `False`, and which informs the program weather the user is asked for values of the quantities measured or not
-
-When runned, the user is asked for the input with the `question` printed, and the input is assigned to the variable `answer`. Then, the program tries to convert the `answer` into type `flt` value. If the convertion has failed and the `Value Error` has been raised, the program tries to replace `,` with `.` (some write floats with coma as a seperator instead of a dot), and once again tries to convert the value. If neither convertions works out, `Wrong value!` message is printed to the user and the program asks for a value again. If the convertion is succesful, but the value is 0, the program prints `Value needs to be greater than 0!` and asks for a value again (there is no case where this method is used and where the value 0 could be a proper value). If the convertion is succesful and the value is greater than 0, program returns the input converted to float, however, if the `values` argument passed to the method had a value `True`, the method returns also unchanged input of the user. It is due to the way of converting `str` to `flt` in Python and cutting the trailing zeros (e.g. "2.30" would be converted to 2.3). In the calculations there is no difference if we are dealing with 2.30 or 2.3, but if the user typed "2.30", it suggests that the measuring device used had a precision up to two decimal places, so the second decimal is also significant figure. For example, value "2.3" suggests that the minimum difference between different values is 0.1, but "2.30" suggests that the minimum difference between different values is 0.01. The `values` argument equal to `True` tells the program that the user is now asked for a value of the measurement, and to maintain the information that the user has typed trailing zeros, the method then returns also the unchanged input.
-
-* `integer` - Used to get the `int` type input from the user. It functions in a similar way to the `float` method, but doesn't have additional `values` argument.
-* `int_from_list` - Used to get from the user one of the integers that's inside a passed list `int_range`. If the user input is not in the list `int_range`, the message `Value out of range!` is printed, and if the input is not a number, `Wrong value!` is printed instead. If the input is correct, its value is returned.
-
-##### 4.1.2 Quantities
-
-The `Quantities` class contains methods that are used to calculate and store informations about measured quantities, such as period (time) and length of the pendulum, that's why `period` and `length` are also the names of the objects of this class.
-
-**Every object of this class is related to one measurant (period or length) for one length of the pendulum.** So, for example, for measurements related to the length $l = 0.6$ m, and measurements related to the length $l = 0.7$ m there will be different objects of class `Quantities` created. The consequence of this approach is that there is no way of storing the values for measurements of different lengths $l$ inside the objects of class `Quantities`. That's why the class has some attributes of it's own:
-
-* `diff_l_numb` - Number of different lengths of the pendulum, for which the measurements were done (e.g., if measurements were done for lengths 0.7 m, 0.6 m, and 0.5 m, the `diff_l_numb` should equal to 3)
-* `l_rep_numb` - Number of the repitions of the measurement of length (for example, if every length of the pendulum was measured 5 times, this variable would be equal to 5).
-* `t_rep_numb` - Number of the repitions of the measurement of 10 periods of the pendulum (for example, if 10 swings of the pendulum were measured 5 times, this variable would be equal to 5). **Note, that we stay that every 10 swings of the pendulum should be measured the same number of times.**
-* `l_resolution` - Value of the resolution of the measuring device, which was used to measure the length.
-* `t_resolution` - Value of the resolution of the measuring device, which was used to measure the time of the 10 swings of the pendulum.
-* `length_dict` - Dictionary in which important values (measured values, avarage value, total uncertainty) regarding length for each length of the pendulum will be stored
-* `period_dict` - Dictionary in which important values (measured values, avarage value, total uncertainty) regarding time of the 10 swings of the pendulum for each length of the pendulum will be stored
-
-As said before, the objects of class `Quantities` are related to quantities measured, thus object attributes are strictly associated with quantities properties and values describing them. The attributes are:
-
-* `values_str` - List of values observed in a set of measurements, kept the same as the user typed them
-* `values_float` - List of values from `values_str`, but converted to `float`
-* `uncertainty_A`, `uncertainty_B`, `uncertainty_exp`, `uncertainty_float`  - Values of uncertainties of the measurand: type A, type B, expanded, total
-* `uncertainty_str` - `uncertainty_float` converted to `flt` type and rounded to two significant digits
-* `mean_float` - Value of the mean of `values_float`
-* `mean_str` - `mean_float`, but converted to `str` and rounded to the same digit as `uncertainty_str` 
-* `sig_fig` - Number of significant digits of a measured value
-
-And methods of this class are:
-
-* `get_values_list` - A method used to get the values of the measurements from the user. It uses `while` loop to ask the user for a value of the measurement `i` number of times, where `i` equals to declared number of repitition of measuring the quantity. Every value that the user typed is appended to the `values_str` list unchanged, and to the `values_float` list after convertion to `flt`.
-* `get_mean` - After all the measurements were gathered, this method can be used to calculate the mean of all values in `values_float` list
-* `get_uncertainty` - When the mean of the values has been already calculated, calculation of its uncertainty is next in line, and this method provides all the necessary things. Firstly, the `uncertainty_B` is calculated, because it only depends on resolution of the meauring device. It accepts additional parameter `quantity`, on which value depends the calculation of uncertainty type B. If the quantity is length, the `quantity` parameter is equal to "length", and the resolution in the equation is equal to `l_resolution`, so the resolution of the measuring device, which was used to measure the length. Otherwise, if the `quantity` is equal to "period", resolution in the equation is equal to `t_resolution` - the resolution of the measuring device which was used to measure the time. Next, the program needs to check if the values in the list are actually different from each other. To calculate type A uncertainty, there should be at least two values that are different. This condition is tested by checking if `len(set(values_float))` is greater than 1. The result of `set(values_float)` is a set with only those values that are different from each other (every value can appear only once in the set), and `len(set(values_float))` will result in the number of values in the set, which is equal to the number of different values in the `values_float` list. If the condition is met, the standard deviation estimator of the `values_float` list is calculated by using `np.std` function. The `ddof` parameter equal to 1 represents that in this calculation there is $n - 1$ degrees of freedom. The next step is to calculate the expanded uncertainty `uncertainty_exp` as a square of the sum of squared values of uncertainty type A and uncertainty type B. At last total uncertainty `uncertainty_float` is calculated as a `uncertainty_exp` multiplied by coverege factor. The coverege factor is associated with critical values of Student's t distribution with 95% two-sided confidence interval, and degrees of freedom equal to $n - 1$, where $n$ is the number of measurements done while measuring the quantity. To calculate the coverege factor one can use `scipy.stats.t.ppf`, a function which calculate the critical value of Student's t distribution, when given one sided convidence interval and number of degrees of freedom. To calculate two sided interval, one need to divide by 2 the value subtracted from 1 while calculating the one sided interval (for example, if one sided confidence interval would be equal to 95%, so 1 - 0.05, the two sided confidence interval would be equal to 1 - 0.05 / 2 = 1 - 0.025). Thus, the function for calculating the coverege factor is `scipy.stats.t.ppf(1 - 0.05 / 2, self.rep_numb - 1)`. However, if the number of different values in `values_float` is not greater than one, the distribution of the values match the uniform distribution, hence the uncertainty type A is equal to 0, because the values are not different from their mean, and the total uncertainty is equal to uncertainty type B. The last thing to do is to use the `sig_fig` method to round the calculated uncertainty to 2 significant digits and store the result in a `uncertainty_str` attribute.
-* `round_to_sig_fig` - After calculating the uncertainty, its value needs to be rounded to 2 significant figures. The method `round_to_sig_fig` takes a `numb` parameter and returns rounded `numb` to 2 significant figures, or rounded to `sig_fig` number of significant figures, if this optional parameter was also provided.
-* `round_to_uncertainty` - The method used to round the `mean_str` to the same number of digits as `uncertainty_str`. There can be three different situations depending on the vale of `uncertainty_str`. The first situation is when the `uncertainty_str` has a dot, so when it's a float. Then, the number of digits that comes after the dot needs to be calculated, and round `mean_str` to this digit, even if it ends up having trailing zeros. Because the `round()` function cuts the trailing zeros, the formatted string was used to round the number instead. However, if `uncertainty_str` doesn't have a dot (so if it is an integer), the number is rounded to the digit that is at the position equal to length of `uncertainty_str`, but countig to the left from the coma (or last digit, if it doesn't have a coma). For example, if uncertainty is equal to 20, so it has 2 digits, and the mean is equal to 1251.2, it should be rounded to the digit at the position equal to 2 places from the left of the coma, so where the "5" is. Thus, the rounded mean would be equal to 1250. In a situation where uncertainty is greater than the mean, it should be rounded to standard 3 significant digits to avoid problems with trying to round a number to a digit that it has not (for example, if the mean would be equal to 3.5, and the uncertainty would be equal to 23, the program would try to round the mean to the digit placed second left of the coma, but there is no such digit in 3.5). Then, the `round_to_sig_fig` method is called with `sig_fig` parameter equal to 3.
-* `measurement_dict_append` - As said before, the objects of the class `Quantites` are related to quantities maasured regarding one length of the pendulum. Throught the experiment the measurements should be done for at least two different lengths of the pendulum, so there should be a way to store important values of quantities regarding every length of the pendulum. After all of these calculation, the method `measurement_dict_append` does just that - it adds to a dictionairy (`length_dict` or `period_dict`, depending on what the calculations involved) the most important informations: length of the pendulum for which the measurements were done, values of the measurements, the mean, and the uncertainty, all in both `str` and `flt` type.
-
-##### 4.1.3 Results
-
-This class is about the final calculations, printing the table with the results, and printing the graph of linear regression. All the methods are class methods, because there is no need for creating an object of this class. It comes with the following attributes:
-
-* `values_table`, `mean_table`, `uncert_table` - Tables that will be used to print the final table
-* `g_calc` - Value of gravitational acceleration calculated using the latitude typed by the user
-
-And following methods:
-
-* `calculate_g` - The method that's calculating the `g_calc` with latitude `lat` typed by the user. It follows the equation shown in the section 1.3.
-* `table_printer` - The method that's used to printing the final table with values measured and some important values related to them. The method starts with the `for` loop that is iterating through all the integers from 1 to the number of different lengths of the pendulum for which the measurements were made. The loop works as follows:
- 1. To each list from `values_table`, `mean_table`, and `uncert_table` there is appended a dictionary consisting of important values (values, mean, and uncertainty, all in `str` type) from the `length_dict`, and `period_dict`, but also its length number, and measurement id list. The length number indicates for which length of the pendulum the measurements were done, and the measurement id list consits of integers from 1 to the number of mesurements done while measuring the quantity. Because there are two quantity measured, the measurement id list is equal to the maximum value of the number of measurements done between the two. 
- 2. From each list there is a `DataFrame` object created: 
-  - `df_val` for values (the `for` loop was used here to have a `DataFrame`, because there will probably be different number of values measured when measuring length and period. For example, if one would measure each length 3 times and each period 10 times, a 'standard' `DataFrame` object couldn't be create, beacuse the difference in number of values in the columns. However, when use the `for` loop, if there is not enough values in the column, the `NaN` values will be added to fill the column. Then, it only takes to use `replace` function on the `df_val` to replace the `Nan` value with empty `str`)
-  - `df_mean` for the values of mean (this table will consists of only one row, that's why also an index "x_mean" is created, which will be nice looking indicator, that in this row we have mean values of the values measured)
-  - `df_unc` for the uncertainty values (this table will consists of only one row, that's why also an index "u(x)" is created, which will be nice looking indicator, that in this row we have uncertainty values of the values measured)
-3. The tables `df_val`, `df_mean`, `df_unc` are concatenated and the result is saved in the `df_temp` 
-4. The `df_temp` is a table containing values for just one length of the pendulum. To create the final table the tables like this for all lengths of the pendulum need to be concatenated. The idea is that in every run of the `for` loop the value `i` is changing and the `df_temp` will be a table for the length of the pendulum number `i`. At the end of every loop `df_temp` to `df_all` are concatenated, and after all the loops a table `df_all` with all the necessary values for every length of the pendulum is created.
-After the program gets out of the loop, some of the settings of pandas are changed, and the table `df_all` is printed.
-
-* `graph_printer` - As shown in the section 3, the measurements points won't lie in a perfect line, even though the equation is linear, because they are not done with perfect precision. What needs to be done now is to calculate the coefficient $m$ of the linear function $y = mx + b$ that is the best approximation of a function $f(l) = T^2$ given the measurements points $(l, T^2)$. Firstly, the arrays `x` and `y` needs to be created from `length_dict` and `period_dict`, respectly. Note, that `period_dict` stores values of $10\cdot T$, and the values desired are $T^2$ instead, thus every value from `period_dict` was divided by 10 and squared. Next, from the same lists arrays `x_err` and `y_err` are created, consisting of `x` and `y` uncertainties (the `y` uncertainties, which consists of $T^2$ uncertainties are calculated from $10 \cdot T$ values and they uncertainties). After that `statsmodels.api.OLS` is used to compute the least-squares solution as follows:
- - Create Ordinairy Least Squares (OLS) model with `sm.OLS(y, sm.add_constant(x))` and assign it to `model` variable. Note, that the array `x` wasn't used straight away, but it was acted on with `sm.add_constant` function to add a column with 1's, because of $b$ coefficient.
- - Get the results of fitting the data to a model with `model.fit()`
- - Assign the values of coefficients $m$ and $b$ from `results.params`, and uncertainty of parameter $m$ from `results.bse`
-This allows the calculation of the most probable value of gravitational acceleration $g$ from the equation $g = \frac{4\pi^2}{m}$. After gathering of the data needed, the object `g` (related to the gravitational acceleration) of the class `Quantities` is being created to get the access to the `round_to_sig_fig` and `round_to_uncertainty` methods, and round the uncertainty of $g$ to 2 significant figures and then round the most calculated value of $g$ to the same digit as the uncertainty. If the value of $g$ calculated with the usage of latitude, which in this case can be treated as the real value of $g$, is in the range of $g$ calculated from the measurements ± its uncertainty, the evaluation can be treated as succesfull, and the message "Congratulations! Your evaluation is correct!" is printed. Otherwise, user will see the following message: "Unfortunately, evaluated value of gravitational constant is outside the margin of error. Do the measurements again and try to evaluate the gravitational acceleration later.". At last, the settings for the plot is being set, and the plot is plotted with uncertainties as error bars.
-
-## Example
-
-The mesurements were done in Łódź (latitude $51\degree$) for lengths 0.6 m, 0.55 m, 0.5 m, 0.45 m, and 0.4 m, which makes the number of different lengths of the pendulum for which the measurements were done equal to 5. Every length of the pendulum was measured only once, but for each length the time of the 10 swings of the pendulum was measured 10 times. The length was measured with the measuring device with resolution 0.01 m, as well as the time was measured with the measuring device with resolution 0.01 s.
-
-<div align="center">
-<img width=90% src="https://github.com/user-attachments/assets/2c2998ec-e52b-4482-8daa-ad8686a743c4">
-</div>
-
-All of the measured values are shown on the picture below:
-
-<div align="center">
-<img width=70% src="https://github.com/user-attachments/assets/4f120e22-435f-4649-a686-f66367c91d36">
-</div>
-
-Typed values for the length 0.6 m and 0.55 m:
-
-<div align="center">
-<img width=60% src="https://github.com/user-attachments/assets/54658833-a61f-404f-ac48-60ca1afc5644">
-</div>
-
-After typing all the values, the measurements table is printed, which part is shown at the picture below:
-
-<div align="center">
-<img width=60% src="https://github.com/user-attachments/assets/1b9405df-e25a-476e-8545-eba02e9d3b16">
-</div>
-
-and graph of the best approximation of linear function that's fitting the measurements is displayed (with measurements points and uncertainties bars):
-
-<div align="center">
-<img width=100% src="https://github.com/user-attachments/assets/a48ee19c-0684-4b98-9c2c-bc0993b4419a">
-</div>
-
-At last, calculated values of $g$ from latitude, and $g$ from the usage of measurements points and coefficient $m$ of the linear function are displayed with their uncertainties:
-
-<div align="center">
-<img width=100% src="https://github.com/user-attachments/assets/edef6c4e-5d9f-4e2b-99b3-0b60ce4277f5">
-</div>
 
 ## Badges
 
